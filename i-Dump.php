@@ -3,7 +3,7 @@
  * Plugin Name: i-Dump iPhone Photo Uploader
  * Plugin URI: http://i-dump.info
  * Description: This plugin let you upload photos or images from your iPhone directly into your wordpress i-Dump gallery.  
- * Version: 1.1.4
+ * Version: 1.1.5
  * Author: Daan van der Werf 
  * Author URI: http://2bdaan.com
  * This program is distributed in the hope that it will be useful,
@@ -53,11 +53,11 @@ function idump_create_menu() {
 	add_menu_page('i-Dump Plugin Settings', 'i-Dump Settings', 'administrator', __FILE__, 'idump_settings_page',plugins_url('/images/idump.png', __FILE__));
 
 	//call register settings function
-	add_action( 'admin_init', 'register_mysettings' );
+	add_action( 'admin_init', 'register_idumpsettings' );
 }
 
 
-function register_mysettings() {
+function register_idumpsettings() {
 	//register our settings
 	register_setting( 'idump-settings-group', 'idump_username' );
 	register_setting( 'idump-settings-group', 'idump_password' );
