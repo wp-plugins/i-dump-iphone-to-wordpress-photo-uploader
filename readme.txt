@@ -4,7 +4,7 @@ Donate link: http://i-dump.info
 Tags: iPhone,mobile,image,images,mobile,wp-dump,photos,gallery,uploader,telephone,wp dump,mobile uploader,i-dump,idump 
 Requires at least: 3.0.0
 Tested up to: 3.0.4
-Stable tag: 4.6
+Stable tag: 4.7
 
 This plugin allows you to upload photos or images from iPhone visitors directly into your wordpress i-Dump gallery using the WP-Dump iphone app.
 
