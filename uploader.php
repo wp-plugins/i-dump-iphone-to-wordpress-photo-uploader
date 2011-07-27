@@ -13,15 +13,22 @@ $fname=$u."-".$time."-" . $_FILES["file"]["name"];
  if ( ($u == get_option('idump_username'))&&($p == get_option('idump_password'))||($u == get_option('idump_username1'))&&($p == get_option('idump_password1')) ) 
 
 {
-
-      $query = "INSERT INTO `iphoto` (`username`,`file`,`date`,`text`) 
-      VALUES ('$u','$fname','$time','$t')";
+/////check if is moderated
+	$publish = get_option('idump_premod');
+	if ($publish =='on'){ 
+	$publish= '0';}
+	else {$publish= '1';}
+////end check if is moderated	   
+	  
+      $query = "INSERT INTO `iphoto` (`username`,`file`,`date`,`text`,`publish`) 
+      VALUES ('$u','$fname','$time','$t','$publish')";
       $result = mysql_query ($query) 
 
   or die("Query error: ". mysql_error()); 
 }
 else
-echo"";
+echo"Not allowed to upload.....contact the domain admin";
+
 
 /// end of database implementation////
 
