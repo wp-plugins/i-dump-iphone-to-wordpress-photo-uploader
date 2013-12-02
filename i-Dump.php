@@ -3,9 +3,9 @@
  * Plugin Name: i-Dump Windows Destop and iPhone Uploader
  * Plugin URI: http://i-dump.info
  * Description: Upload images Directly from your desktop or iPhone WP-Dump into your wordpress i-Dump gallery.  
- * Version: 1.6
+ * Version: 1.7
  * Author: Daan van der Werf 
- * Author URI: http://2bdaan.com
+ * Author URI: http://daanvanderwerf.nl
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
@@ -52,7 +52,7 @@ function jal_install () {
 function idump_create_menu() {
 
 	//create new top-level menu
-	add_menu_page('i-Dump Plugin Settings', 'i-Dump Settings', 'administrator', __FILE__, 'idump_settings_page',plugins_url('/images/idump.png', __FILE__));
+	add_menu_page('i-Dump Plugin Settings', 'i-Dump Gallery', 'administrator', __FILE__, 'idump_settings_page',plugins_url('/images/idump.png', __FILE__));
 	//call register settings function
 	add_action( 'admin_init', 'register_idumpsettings' );
 }
@@ -108,6 +108,27 @@ if ($glimit == '' || $gcols == ''){
 $gcols = $gcols +1;
 
 $i=1;
+echo '<script src="http://www.i-dump.info/wp-content/plugins/i-dump-iphone-to-wordpress-photo-uploader/js/jquery.js" type="text/javascript"></script>
+<script src="wp-content/plugins/i-dump-iphone-to-wordpress-photo-uploader/js/main.js" type="text/javascript"></script>
+<style>
+
+#screenshot{
+	position:absolute;
+	border:1px solid #ccc;
+	background:#333;
+	padding:5px;
+	display:none;
+	color:#fff;
+	max-height:250px;
+	max-width:250px;
+	}
+	
+.preview{
+	max-height:250px;
+}	
+</style>
+';
+
 echo $gtext;// the text above the gallery method
 echo"<span class='caption'><center><table><tr>";
 
@@ -130,7 +151,16 @@ $limit = 14;
    if (strlen($mark) > $limit)
       $mark = substr($mark, 0, strrpos(substr($mark, 0, $limit), ' ')) . '...';
 
-    echo "<td width=90><center><a href='$path/$filesql' class='lightview' rel='gallery[mygallery]' ><img src=\"$path2/$filesql\" alt=\"$markfull\" /></a><br><font style='font-size:x-small;'>$mark</font></center></td>";
+  //  echo "<td width=90><center>
+//	<a href='$path/$filesql' class='screenshot' rel='$path/$filesql' title=\"$markfull\"><img src=\"$path2/$filesql\" alt=\"$markfull\" /></a>
+//	<br><font style='font-size:x-small;'>$mark</font></center></td>";
+	
+	echo "<td width=90><center>
+	<a title='$markfull' class='screenshot' rel='$path/$filesql' height='250px'><img alt='$markfull' src='$path2/$filesql' class='preview'></a>
+	<br><font style='font-size:x-small;'>$mark</font></center></td>";
+	
+	
+	
 
         $i++;
 		if ($i== $gcols)
@@ -255,7 +285,7 @@ if (!is_dir('../wp-content/uploads/i-dump-uploads/thumbnails')) {
 
 /////////add colum to publish//  upgrade to version 1.5 or higher
 
-$version="1.6"; 
+$version="1.7"; 
 
 if ((get_option('idump_upgrade') == '0')||(get_option('idump_upgrade') == '')) { 
 	$sql=mysql_query("SELECT publish FROM iphoto");
@@ -397,12 +427,12 @@ for($i = $begin_iteration;$i<$end_iteration;$i++){
 	
 	
 	  $time= date('Y-m-d', $results[$i]['date']);
-	    echo "<td><small>$time</small><br><img src=\"$path2/".$results[$i]['file']."\" alt=\"$time\" /><br><center>
+	    echo "<td><label for='checkbox[".$i."]'><small>$time</small><br><img src=\"$path2/".$results[$i]['file']."\" alt=\"$time\" /><br><center>
 
-		<small>".$results[$i]['id']." </small><input name=\"checkbox[]\" type=\"checkbox\" id=\"checkbox[]\" value=".$results[$i]['id'].">
+		<small>".$results[$i]['id']." </small><input name=\"checkbox[]\" type=\"checkbox\" id=\"checkbox[".$i."]\" value=".$results[$i]['id'].">
 				
 		
-		" .$show." </center>
+		" .$show." </center></label>
 </td>";
 
 	
