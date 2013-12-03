@@ -1,7 +1,7 @@
 ===Windows Desktop and iPhone Photo Uploader ===
 Contributors:Daan van der Werf
 Donate link: http://i-dump.info
-Tags: iPhone,mobile,i-dump,idump,images,desktop,drag,photos,gallery,uploader,telephone,wp dump,windows, drag and drop 
+Tags: iPhone,mobile,i-dump,idump,images,desktop,drag,photos,gallery,uploader,telephone,wp dump,windows, drag and drop, nikon, canon, dslr 
 Requires at least: 3.0.0
 Tested up to: 3.7.1
 Stable tag: 1.7
@@ -20,7 +20,7 @@ Test it out at http:/www.i-dump.info !
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Open de i-Dump settings at the admin menu bar.
 4. Make sure your server settings are allowed to have write permission (see FAQ)
-5. Download your iPhone app at http://itun.es/iF78p4
+5. Download your iPhone app at https://itunes.apple.com/us/app/wp-dump/id460989802?l=nl&ls=1&mt=8
 
 if you need support how to install plugins, please checkout  
 http://codex.wordpress.org/Managing_Plugins
@@ -44,7 +44,7 @@ http://codex.wordpress.org/Managing_Plugins
 - Q : Can i use this plugin with more then 2 iPhone users?
 - A : Yes you can let unlimited users upload to your blog, unless they have the WP-Dump iphone app.
 - Q : Where do i find the WP-Dump iPhone app ?
-- A : You can find the WP-Dump iPhone app at http://itun.es/iF78p4
+- A : You can find the WP-Dump iPhone app at https://itunes.apple.com/us/app/wp-dump/id460989802?l=nl&ls=1&mt=8
 - Q : My text captions does not appear under the photos, what is wrong?
 - A : If there is no caption send from your iPhone, the date will automatically appear.
 - Q : I don't see my question above, where can i contact the developer?
@@ -61,6 +61,10 @@ http://codex.wordpress.org/Managing_Plugins
 
 
 == Changelog ==
+= 1.7 =
+* Admin fix (select images) 
+* Link changes (itunes)
+
 = 1.6 =
 * Compatible with i-Dump for Windows(Drag and drop functionality)
 

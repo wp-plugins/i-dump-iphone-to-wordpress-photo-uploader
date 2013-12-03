@@ -3,7 +3,7 @@
  * Plugin Name: i-Dump Windows Destop and iPhone Uploader
  * Plugin URI: http://i-dump.info
  * Description: Upload images Directly from your desktop or iPhone WP-Dump into your wordpress i-Dump gallery.  
- * Version: 1.7
+ * Version: 1.8
  * Author: Daan van der Werf 
  * Author URI: http://daanvanderwerf.nl
  * This program is distributed in the hope that it will be useful,
@@ -108,25 +108,7 @@ if ($glimit == '' || $gcols == ''){
 $gcols = $gcols +1;
 
 $i=1;
-echo '<script src="http://www.i-dump.info/wp-content/plugins/i-dump-iphone-to-wordpress-photo-uploader/js/jquery.js" type="text/javascript"></script>
-<script src="wp-content/plugins/i-dump-iphone-to-wordpress-photo-uploader/js/main.js" type="text/javascript"></script>
-<style>
-
-#screenshot{
-	position:absolute;
-	border:1px solid #ccc;
-	background:#333;
-	padding:5px;
-	display:none;
-	color:#fff;
-	max-height:250px;
-	max-width:250px;
-	}
-	
-.preview{
-	max-height:250px;
-}	
-</style>
+echo '
 ';
 
 echo $gtext;// the text above the gallery method
@@ -151,13 +133,13 @@ $limit = 14;
    if (strlen($mark) > $limit)
       $mark = substr($mark, 0, strrpos(substr($mark, 0, $limit), ' ')) . '...';
 
-  //  echo "<td width=90><center>
-//	<a href='$path/$filesql' class='screenshot' rel='$path/$filesql' title=\"$markfull\"><img src=\"$path2/$filesql\" alt=\"$markfull\" /></a>
-//	<br><font style='font-size:x-small;'>$mark</font></center></td>";
-	
-	echo "<td width=90><center>
-	<a title='$markfull' class='screenshot' rel='$path/$filesql' height='250px'><img alt='$markfull' src='$path2/$filesql' class='preview'></a>
+    echo "<td width=90><center>
+	<a href='$path/$filesql' class='screenshot' rel='$path/$filesql' title=\"$markfull\"><img src=\"$path2/$filesql\" alt=\"$markfull\" /></a>
 	<br><font style='font-size:x-small;'>$mark</font></center></td>";
+	
+//	echo "<td width=90><center>
+//	<a title='$markfull' class='screenshot' rel='$path/$filesql' height='250px'><img alt='$markfull' src='$path2/$filesql' class='preview'></a>
+//	<br><font style='font-size:x-small;'>$mark</font></center></td>";
 	
 	
 	
